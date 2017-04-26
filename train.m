@@ -1,0 +1,26 @@
+function [F_final, covarfin] = train()
+T=load('ZerosData.txt');
+[F0 covar0] =training(T);
+T=load('onesData.txt');
+[F1 covar1] =training(T);
+T=load('twosData.txt');
+[F2 covar2] =training(T);
+T=load('threesData.txt');
+[F3 covar3] =training(T);
+T=load('foursData.txt');
+[F4 covar4] =training(T);
+T=load('fivesData.txt');
+[F5 covar5] =training(T);
+T=load('sixesData.txt');
+[F6 covar6] =training(T);
+T=load('sevensData.txt');
+[F7 covar7] =training(T);
+T=load('eightsData.txt');
+[F8 covar8] =training(T);
+T=load('ninesData.txt');
+[F9 covar9] =training(T);
+covarfin=covar0+covar1+covar2+covar3+covar4+covar5+covar6+covar7+covar8+covar9;
+covarfin=covarfin/10;
+F_final=[F0',F1',F2',F3',F4',F5',F6',F7',F8',F9'];
+F_final=F_final';
+inv(covarfin);
